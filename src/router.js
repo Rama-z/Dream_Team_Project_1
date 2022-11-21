@@ -6,7 +6,7 @@ import Forgot from "./pages/Forgot";
 import Profile from "./pages/Profile";
 import Cart from "./pages/Cart";
 import Checkout from "./pages/Checkout";
-import Tracking from "./pages/tracking";
+import Tracking from "./pages/Tracking";
 import TrackingDetail from "./pages/TrackingDetail";
 import ProfileSeller from "./pages/ProfileSeller";
 import MyProduct from "./pages/MyProduct";
