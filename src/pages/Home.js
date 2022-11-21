@@ -1,154 +1,127 @@
-import React from "react";
+import React from 'react';
 
-import Header from "../components/Header";
+// import { useNavigate } from "react-router";
 
-import Footer from "../components/Footer";
+// import { useState, useEffect } from "react";
 
-import styles from "../styles/Home.module.css";
+import Header from '../components/Header';
 
-import sofaWithPillow from "../assets/raz-retangle-1.png";
+import Footer from '../components/Footer';
 
-import miniModernLamp from "../assets/raz-retangle-2.png";
+import styles from '../styles/Home.module.css';
 
-import blueLivingVintageChair from "../assets/raz-retangle-3.png";
+import sofaWithPillow from '../assets/raz-retangle-1.png';
 
-import japaneseStyleBlueCeramic from "../assets/raz-retangle-4.png";
+import miniModernLamp from '../assets/raz-retangle-2.png';
 
-import japanesePlateFloral from "../assets/raz-retangle-5.png";
+import blueLivingVintageChair from '../assets/raz-retangle-3.png';
 
-import modernFloorLamp from "../assets/raz-retangle-6.png";
+import japaneseStyleBlueCeramic from '../assets/raz-retangle-4.png';
+
+import japanesePlateFloral from '../assets/raz-retangle-5.png';
+
+import modernFloorLamp from '../assets/raz-retangle-6.png';
 
 const Home = () => {
-  const role = localStorage.getItem("role"); // Get role user
-  console.log(role);
-  const token = localStorage.getItem("token");
+  // const navigate = useNavigate();
+
+  // « Get Role & Token»
+  const role = localStorage.getItem('role');
+  const token = localStorage.getItem('token');
 
   return (
     <>
-      <main className={[styles["main"]]}>
-        {token === null ? (
-          <Header displayRegister={`none`} displayProfile={`none`}/>
-        ) : role === "customer" ? (
-          <Header linkToProfile={`/profile`} displayRegister={`none`} />
-        ) : (
-          <Header linkToProfile={`/profile/seller`} displayRegister={`none`} />
-        )}
-        <section className={`${styles["section"]} ${styles["fist-section"]}`}>
-          <h1 className={styles["title"]}>Minimal Furniture Store</h1>
-          <p className={styles["description"]}>
-            Donec nunc nunc, gravida vitae diam vel, varius interdum erat.
-            Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices
-            ex. Curabitur ut magna dignissim, dignissim
-          </p>
+      <main className={[styles['main']]}>
+        {token === null ? <Header displayProfile={`none`} /> : role === 'seller' ? <Header linkToProfile={`/profile/seller`} displayRegister={`none`} /> : <Header linkToProfile={`/profile`} displayRegister={`none`} />}
+        <section className={`${styles['section']} ${styles['fist-section']}`}>
+          <h1 className={styles['title']}>Minimal Furniture Store</h1>
+          <p className={styles['description']}>Donec nunc nunc, gravida vitae diam vel, varius interdum erat. Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices ex. Curabitur ut magna dignissim, dignissim</p>
         </section>
-        <section className={`${styles["section"]} ${styles["second-section"]}`}>
-          <span className={styles["section__image"]}>
+        <section className={`${styles['section']} ${styles['second-section']}`}>
+          <span className={styles['section__image']}>
             <img src={sofaWithPillow} alt="Sofa with Pilow" />
           </span>
-          <span className={styles["second-section__description"]}>
+          <span className={styles['second-section__description']}>
             <h1>Mid-Century 1929 Sofa with Pilow</h1>
             <p>
-              Donec nunc nunc, gravida vitae diam vel, varius interdum erat.
-              Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices
-              ex. Curabitur ut magna dignissim, dignissim neque et, placerat
-              risus. Morbi dictum lectus quam
+              Donec nunc nunc, gravida vitae diam vel, varius interdum erat. Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices ex. Curabitur ut magna dignissim, dignissim neque et, placerat risus. Morbi dictum lectus quam
             </p>
-            <span className={styles["btn-shop-now"]}>
+            <span className={styles['btn-shop-now']}>
               <span></span>
               <p>SHOP NOW</p>
             </span>
           </span>
         </section>
-        <section className={`${styles["section"]} ${styles["third-section"]}`}>
-          <span className={styles["section__image"]}>
+        <section className={`${styles['section']} ${styles['third-section']}`}>
+          <span className={styles['section__image']}>
             <img src={miniModernLamp} alt="Mini Morder Lamp" />
           </span>
-          <span className={styles["second-section__description"]}>
+          <span className={styles['second-section__description']}>
             <h1>Mini Modern Lamp</h1>
             <p>
-              Donec nunc nunc, gravida vitae diam vel, varius interdum erat.
-              Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices
-              ex. Curabitur ut magna dignissim, dignissim neque et, placerat
-              risus. Morbi dictum lectus quam
+              Donec nunc nunc, gravida vitae diam vel, varius interdum erat. Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices ex. Curabitur ut magna dignissim, dignissim neque et, placerat risus. Morbi dictum lectus quam
             </p>
-            <span className={styles["btn-shop-now"]}>
+            <span className={styles['btn-shop-now']}>
               <span></span>
               <p>SHOP NOW</p>
             </span>
           </span>
         </section>
-        <section className={`${styles["section"]} ${styles["fourth-section"]}`}>
-          <span className={styles["section__image"]}>
+        <section className={`${styles['section']} ${styles['fourth-section']}`}>
+          <span className={styles['section__image']}>
             <img src={blueLivingVintageChair} alt="Blue Living Vintage Chair" />
           </span>
-          <span className={styles["second-section__description"]}>
+          <span className={styles['second-section__description']}>
             <h1>Blue Living Vintage Chair</h1>
             <p>
-              Donec nunc nunc, gravida vitae diam vel, varius interdum erat.
-              Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices
-              ex. Curabitur ut magna dignissim, dignissim neque et, placerat
-              risus. Morbi dictum lectus quam
+              Donec nunc nunc, gravida vitae diam vel, varius interdum erat. Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices ex. Curabitur ut magna dignissim, dignissim neque et, placerat risus. Morbi dictum lectus quam
             </p>
-            <span className={styles["btn-shop-now"]}>
+            <span className={styles['btn-shop-now']}>
               <span></span>
               <p>SHOP NOW</p>
             </span>
           </span>
         </section>
-        <section className={`${styles["section"]} ${styles["fifth-section"]}`}>
-          <span className={styles["section__image"]}>
-            <img
-              src={japaneseStyleBlueCeramic}
-              alt="Japanese Style Blue Ceramic"
-            />
+        <section className={`${styles['section']} ${styles['fifth-section']}`}>
+          <span className={styles['section__image']}>
+            <img src={japaneseStyleBlueCeramic} alt="Japanese Style Blue Ceramic" />
           </span>
-          <span className={styles["second-section__description"]}>
+          <span className={styles['second-section__description']}>
             <h1>Japanese Style Blue Ceramic</h1>
             <p>
-              Donec nunc nunc, gravida vitae diam vel, varius interdum erat.
-              Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices
-              ex. Curabitur ut magna dignissim, dignissim neque et, placerat
-              risus. Morbi dictum lectus quam
+              Donec nunc nunc, gravida vitae diam vel, varius interdum erat. Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices ex. Curabitur ut magna dignissim, dignissim neque et, placerat risus. Morbi dictum lectus quam
             </p>
-            <span className={styles["btn-shop-now"]}>
+            <span className={styles['btn-shop-now']}>
               <span></span>
               <p>SHOP NOW</p>
             </span>
           </span>
         </section>
-        <section
-          className={`${styles["section"]} ${styles["seventh-section"]}`}
-        >
-          <span className={styles["section__image"]}>
+        <section className={`${styles['section']} ${styles['seventh-section']}`}>
+          <span className={styles['section__image']}>
             <img src={japanesePlateFloral} alt="Japanese plate floral" />
           </span>
-          <span className={styles["second-section__description"]}>
+          <span className={styles['second-section__description']}>
             <h1>Japanese plate floral</h1>
             <p>
-              Donec nunc nunc, gravida vitae diam vel, varius interdum erat.
-              Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices
-              ex. Curabitur ut magna dignissim, dignissim neque et, placerat
-              risus. Morbi dictum lectus quam
+              Donec nunc nunc, gravida vitae diam vel, varius interdum erat. Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices ex. Curabitur ut magna dignissim, dignissim neque et, placerat risus. Morbi dictum lectus quam
             </p>
-            <span className={styles["btn-shop-now"]}>
+            <span className={styles['btn-shop-now']}>
               <span></span>
               <p>SHOP NOW</p>
             </span>
           </span>
         </section>
-        <section className={`${styles["section"]} ${styles["eigth-section"]}`}>
-          <span className={styles["section__image"]}>
+        <section className={`${styles['section']} ${styles['eigth-section']}`}>
+          <span className={styles['section__image']}>
             <img src={modernFloorLamp} alt="Modern Floor Lamp" />
           </span>
-          <span className={styles["second-section__description"]}>
+          <span className={styles['second-section__description']}>
             <h1>Modern Floor Lamp</h1>
             <p>
-              Donec nunc nunc, gravida vitae diam vel, varius interdum erat.
-              Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices
-              ex. Curabitur ut magna dignissim, dignissim neque et, placerat
-              risus. Morbi dictum lectus quam
+              Donec nunc nunc, gravida vitae diam vel, varius interdum erat. Quisque a nunc vel diam auctor commodo. Curabitur blandit ultrices ex. Curabitur ut magna dignissim, dignissim neque et, placerat risus. Morbi dictum lectus quam
             </p>
-            <span className={styles["btn-shop-now"]}>
+            <span className={styles['btn-shop-now']}>
               <span></span>
               <p>SHOP NOW</p>
             </span>
