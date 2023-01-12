@@ -107,8 +107,8 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 - [Features](#features)
 - [Run Application](#how-to-run-the-application)
-- [Deployment](#deployment)
 - [Contributing](#contributing)
+- [Deployment](#deployment)
 - [Related Projects](#related-projects)
 - [Contributors](#authors)
 
@@ -219,14 +219,6 @@ Launches the test runner in the interactive watch mode. See the section about [r
 If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 -->
 
-## Deployment
-
-[Vercel deploy link](https://dreamfurniture.vercel.app/)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 <!-- ROADMAP -->
 <!-- # Roadmap
 <!--
@@ -239,7 +231,7 @@ If you aren't satisfied with the build tool and configuration choices, you can `
     - [ ] Spanish -->
 
 <!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
--->
+
 
 
 <!-- CONTRIBUTING -->
@@ -257,9 +249,17 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+## Deployment
+
+[Vercel deploy link](https://dreamfurniture.vercel.app/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ##Related Projects
 
 [dream furniture backend](https://dream-team-project-be.vercel.app/)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ##Contributors
 
@@ -299,6 +299,7 @@ If you aren't satisfied with the build tool and configuration choices, you can `
   </table>
 </center>
 
+<!-- <p align="right">(<a href="#readme-top">back to top</a>)</p> -->
 
 <!-- CONTACT -->
 <!-- # Contact
