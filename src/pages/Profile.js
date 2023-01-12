@@ -257,7 +257,7 @@ class Profiles extends Component {
                   <p className={styles["section-3-text"]}>{this.state.email}</p>
                 </div>
               </div>
-              <div className={styles["section-3-div"]}>
+              {/* <div className={styles["section-3-div"]}>
                 <div className={styles["section-3-subdiv"]}>
                   <label className={styles["section-3-label"]}>
                     Store Description
@@ -270,7 +270,7 @@ class Profiles extends Component {
                     onChange={(event) => this.handleChange(event, "desc")}
                   />
                 </div>
-              </div>
+              </div> */}
               <div className={styles["btn-div"]}>
                 <form onSubmit={this.handleSubmit}>
                   <button type="submit" className={styles["logout"]}>

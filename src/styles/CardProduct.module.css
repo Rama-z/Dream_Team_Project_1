@@ -11,14 +11,14 @@
 }
 
 .product__img {
-  width: 250px;
-  height: 250px;
+  width: 280px;
+  height: 280px;
   cursor: pointer;
 }
 .title {
   text-align: center;
   font-size: 18px;
-  width: 100%;
+  width: 90%;
   font-weight: 800;
 }
 
@@ -31,5 +31,10 @@
   .product__img {
     width: 140px;
     height: 180px;
+  }
+  .product {
+    width: 150px;
+    display: flex;
+    flex-wrap: wrap;
   }
 }

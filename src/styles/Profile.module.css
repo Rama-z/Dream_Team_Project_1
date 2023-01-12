@@ -47,10 +47,10 @@
 }
 
 .section-1::after {
-  background-image: url("../assets/login-background.png");
+  background-image: url('../assets/login-background.png');
   background-repeat: no-repeat;
   background-size: cover;
-  content: "";
+  content: '';
   opacity: 0.2;
   top: 0;
   left: 0;
@@ -151,8 +151,7 @@
 }
 
 .section-3-div:nth-child(3) {
-  border-left: 1px solid #d1d1d1;
-  border-right: 1px solid #d1d1d1;
+  border: 1px solid #d1d1d1;
 }
 
 .section-3-label {
@@ -348,5 +347,14 @@
   }
   .logout:hover {
     background-color: orange;
+  }
+  .btn-div-2 {
+    display: flex;
+    flex-direction: column;
+  }
+  .profile-nav {
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
   }
 }

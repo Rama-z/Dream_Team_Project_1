@@ -53,11 +53,11 @@ const Products = () => {
     Number(query.page) === 1 && totalData > Number(query.limit)
       ? query.limit
       : Number(query.page) === 1 && totalData < Number(query.limit)
-      ? totalData
-      : Number(query.page) !== 1 &&
-        totalData < Number(query.limit) * Number(query.page)
-      ? totalData
-      : Number(query.limit) * Number(query.page);
+        ? totalData
+        : Number(query.page) !== 1 &&
+          totalData < Number(query.limit) * Number(query.page)
+          ? totalData
+          : Number(query.limit) * Number(query.page);
   const inItem =
     Number(query.page) === 1
       ? 1
@@ -440,7 +440,7 @@ const Products = () => {
                         onClick={() => {
                           setQuery({
                             ...query,
-                            sort: "oldest",
+                            sort: "oldes",
                           });
                         }}
                       >
@@ -450,7 +450,7 @@ const Products = () => {
                         onClick={() => {
                           setQuery({
                             ...query,
-                            sort: "newest",
+                            sort: "newes",
                           });
                         }}
                       >
