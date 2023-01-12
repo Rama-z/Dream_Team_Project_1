@@ -60,9 +60,11 @@ const router = createBrowserRouter([
   {
     path: "/profile",
     element: (
-      <PrivateElement>
-        <Profile />
-      </PrivateElement>
+      <PrivateElementUser>
+        <PrivateElement>
+          <Profile />
+        </PrivateElement>
+      </PrivateElementUser>
     ),
   },
   { path: "/products", element: <Products /> },

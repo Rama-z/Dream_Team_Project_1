@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:8090/";
-// const baseUrl = "https://dream-team-project-be.vercel.app/";
+// const baseUrl = "http://localhost:8090/";
+const baseUrl = "https://dream-team-project-be.vercel.app/";
 
 // const baseUrl2 = http://localhost:8090/
 // console.log(process.env.REACT_APP_DT_BACKEND_HOST);
@@ -101,6 +101,15 @@ export const deleteSellerProduct = (token, params) => {
     params,
   });
 };
+
+export const deleteProduct = (token, params) => {
+  return axios({
+    method: 'PATCH',
+    url: `${baseUrl}raz/product/delete`,
+    headers: { "x-access-token": token },
+    params,
+  })
+}
 
 export const createProduct = (body, token) => {
   const urls = `${baseUrl}raz/product`;

@@ -17,11 +17,11 @@
 }
 
 .section-1::after {
-  background-image: url("../assets/login-background.png");
-  background-image: url("../assets/login-background.png");
+  background-image: url('../assets/login-background.png');
+  background-image: url('../assets/login-background.png');
   background-repeat: no-repeat;
   background-size: cover;
-  content: "";
+  content: '';
   opacity: 0.2;
   top: 0;
   left: 0;
@@ -342,21 +342,22 @@ button:focus:not(:focus-visible) {
     }
 
     .product-img {
-      width: 40%;
-      height: auto;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 150px;
+      height: 150px;
     }
 
     .add-div {
       padding-top: 50px;
       row-gap: 26px;
-      width: 40%;
-      height: auto;
+      width: 150px;
+      height: 150px;
     }
-  }
-  .add-div {
-    padding-top: 50px;
-    row-gap: 26px;
-    width: 40%;
-    height: auto;
+    .content-btn {
+      display: flex;
+      justify-content: center;
+    }
   }
 }

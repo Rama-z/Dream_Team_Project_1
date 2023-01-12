@@ -10,10 +10,14 @@ import check from "../assets/check.png";
 import {
   createSearchParams,
   useNavigate,
+  useParams,
   useSearchParams,
 } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import productActions from "../redux/action/product";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
 
 const MyProducts = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -22,6 +26,9 @@ const MyProducts = () => {
   const isRejected = useSelector((state) => state.products.isError);
   const [query, setQuery] = useState({});
   const token = useSelector((state) => state.auth.userInfo.token);
+  // const [idproduct, setIdProduct] = useState(0)
+  // const { id } = useParams();
+
   // const useQuery = () => {
   //   const { search } = useLocation();
   //   return useMemo(() => new URLSearchParams(search), [search]);
@@ -36,8 +43,38 @@ const MyProducts = () => {
   }, [query, searchParams]);
 
   const navigate = useNavigate();
+
+  const handleDelete = (idp) => {
+    const getToken = localStorage.getItem("token");
+    // console.log(idp);
+    // console.log(getToken);
+    axios
+      .patch(
+        `https://dream-team-project-be.vercel.app/raz/product/delete/${idp}`, {},
+        {
+          headers: {
+            "x-access-token": JSON.parse(getToken),
+          },
+        }
+      )
+      .then((res) => {
+        console.log(res);
+        toast.success("success delete product", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 3000,
+        });
+
+        setTimeout(() => {
+          const urlSearchParams = createSearchParams({ ...query });
+          setSearchParams(urlSearchParams);
+          dispatch(productActions.getSellerProductThunk(token, query));
+        }, 3000);
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <>
+      <ToastContainer />
       <main className={styles["main-2"]}>
         <main className={styles["main"]}>
           <Header />
@@ -76,14 +113,14 @@ const MyProducts = () => {
               >
                 Selling Product
               </p>
-              <p
+              {/* <p
                 className={styles["nav-div-2"]}
                 onClick={() => {
                   navigate("/profile/seller/order");
                 }}
               >
                 My Order
-              </p>
+              </p> */}
             </div>
             <table className={styles["table"]}>
               <tr className={styles["tr-top"]}>
@@ -93,7 +130,9 @@ const MyProducts = () => {
                 <th className={styles["table-text-1"]}>Price</th>
               </tr>
               {isLoading ? (
-                <Loading />
+                <div className={styles["loading"]}>
+                  <Loading />
+                </div>
               ) : (
                 sellerProducts?.map((item, index) => (
                   <tbody>
@@ -126,7 +165,7 @@ const MyProducts = () => {
                       <p className={styles["delete-div"]}>
                         <button
                           className={styles["delete-btn"]}
-                          onClick={() => {}}
+                          onClick={() => handleDelete(item.id)}
                         >
                           Delete
                         </button>

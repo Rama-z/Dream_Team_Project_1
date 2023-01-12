@@ -17,11 +17,11 @@
 }
 
 .section-1::after {
-  background-image: url("../assets/login-background.png");
-  background-image: url("../assets/login-background.png");
+  background-image: url('../assets/login-background.png');
+  background-image: url('../assets/login-background.png');
   background-repeat: no-repeat;
   background-size: cover;
-  content: "";
+  content: '';
   opacity: 0.2;
   top: 0;
   left: 0;
@@ -260,6 +260,11 @@
   width: 70px;
   height: auto;
   padding-right: 10px;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 @media (max-width: 768px) {
