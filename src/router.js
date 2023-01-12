@@ -69,7 +69,14 @@ const router = createBrowserRouter([
   },
   { path: "/products", element: <Products /> },
   // { path: "/products/:id", element: <ProductsDetails /> }, // product detail test
-  { path: "/products/:id", element: <ProductDetail /> }, // Change using params
+  {
+    path: "/products/:id",
+    element: (
+      <PrivateElement>
+        <ProductDetail />
+      </PrivateElement>
+    )
+  }, // Change using params
   {
     path: "/notification",
     element: (
