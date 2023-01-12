@@ -76,45 +76,45 @@ export default function ProfileSellers() {
 
   const handleSubmit2 = (event) => {
     event.preventDefault();
-    // const url = `https://dream-team-project-be.vercel.app/raz/users/profile/edit`;
+    const url = `https://dream-team-project-be.vercel.app/raz/users/profile/edit`;
     const formData = new FormData();
     formData.append("username", body.username);
     formData.append("gender", body.gender);
-    formData.append("store_description", body.desc);
+    formData.append("store_description", body.store_description);
     if (body.file) {
       formData.append("image", body.file);
     }
-    // const bodies = formData;
-    // const config = {
-    //   headers: {
-    //     "x-access-token": token,
-    //   },
-    // };
+    const bodies = formData;
+    const config = {
+      headers: {
+        "x-access-token": token,
+      },
+    };
 
-    // for (const value of formData.values()) {
-    //   console.log(value);
-    // }
-    // Axios.patch(url, bodies, config)
-    //   .then((res) => {
-    //     Swal.fire({
-    //       title: "Data changed successfully!",
-    //       timer: 2000,
-    //       showConfirmButton: false,
-    //     }).then((result) => {
-    //       if (result.dismiss === Swal.DismissReason.timer) {
-    //         window.location.reload();
-    //       }
-    //     });
-    //     console.log(res);
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //     Swal.fire({
-    //       title: "Data not valid!",
-    //       showConfirmButton: false,
-    //       timer: 1000,
-    //     });
-    //   });
+    for (const value of formData.values()) {
+      console.log(value);
+    }
+    Axios.patch(url, bodies, config)
+      .then((res) => {
+        Swal.fire({
+          title: "Data changed successfully!",
+          timer: 2000,
+          showConfirmButton: false,
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            window.location.reload();
+          }
+        });
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+        Swal.fire({
+          title: "Data not valid!",
+          showConfirmButton: false,
+          timer: 1000,
+        });
+      });
   };
 
   const handleFile = (event) => {
@@ -172,14 +172,14 @@ export default function ProfileSellers() {
               >
                 Selling Product
               </p>
-              <p
+              {/* <p
                 className={styles["nav-div-2"]}
                 onClick={() => {
                   navigate("/profile/seller/order");
                 }}
               >
                 My Order
-              </p>
+              </p> */}
             </div>
             <section className={styles["section-2"]}>
               <div className={styles["profile-div"]}>

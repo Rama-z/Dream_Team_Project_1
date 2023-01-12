@@ -19,11 +19,11 @@
   display: none;
 }
 .section-1::after {
-  background-image: url("../assets/login-background.png");
-  background-image: url("../assets/login-background.png");
+  background-image: url('../assets/login-background.png');
+  background-image: url('../assets/login-background.png');
   background-repeat: no-repeat;
   background-size: cover;
-  content: "";
+  content: '';
   opacity: 0.2;
   top: 0;
   left: 0;
@@ -224,10 +224,10 @@
 }
 
 .section-1::after {
-  background-image: url("../assets/login-background.png");
+  background-image: url('../assets/login-background.png');
   background-repeat: no-repeat;
   background-size: cover;
-  content: "";
+  content: '';
   opacity: 0.2;
   top: 0;
   left: 0;
@@ -573,5 +573,15 @@
   .profile-top-text {
     font-size: 18px;
     text-align: center;
+  }
+  .submit-div {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+  .profile-nav {
+    column-gap: 0px;
+    justify-content: space-around;
+    margin-bottom: 0px;
   }
 }
