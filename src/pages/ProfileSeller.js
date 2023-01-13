@@ -21,6 +21,7 @@ export default function ProfileSellers() {
   const token = useSelector((state) => state.auth.userInfo.token);
   const profile = useSelector((state) => state.profile.profile[0]);
   const [query, setQuery] = useState({});
+  const [display, setDisplay] = useState(profile.image);
   const [body, setBody] = useState({
     username: profile.username,
     role: profile.role,
@@ -29,13 +30,12 @@ export default function ProfileSellers() {
     file: profile.file,
     image: profile.image || edit,
     store_description: profile.store_description,
-    display: profile.image
   });
   console.log(body);
   useEffect(() => {
     dispatch(profileAction.getProfileThunk(token));
     dispatch(productActions.getSellerProductThunk(token, query));
-  }, [dispatch, token]);
+  }, [dispatch, token, profile.image]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -78,15 +78,13 @@ export default function ProfileSellers() {
   const inputImage = (event) => {
     // console.log(image);
     if (event.target.files && event.target.files[0]) {
-      setBody({
-        ...body,
-        display: URL.createObjectURL(event.target.files[0]),
-      });
+      setDisplay(URL.createObjectURL(event.target.files[0]))
     }
     setBody({
       ...body,
       file: event.target.files[0],
     });
+    console.log(body.display);
     // if (event.target.files && event.target.files[0]) {
     //   setDisplay(URL.createObjectURL(event.target.files[0]));
     //   setImage(event.target.files[0]);
@@ -122,7 +120,7 @@ export default function ProfileSellers() {
           showConfirmButton: false,
         }).then((result) => {
           if (result.dismiss === Swal.DismissReason.timer) {
-            window.location.reload();
+            // window.location.reload();
           }
         });
         console.log(res);
@@ -204,10 +202,10 @@ export default function ProfileSellers() {
             <section className={styles["section-2"]}>
               <div className={styles["profile-div"]}>
                 <label htmlFor="upload" className={styles["profile-image-div"]}>
-                  {body.display ? (
+                  {display ? (
                     <img
                       className={styles["profile-image"]}
-                      src={body.display}
+                      src={display}
                       alt="img"
                     />
                   ) : (
