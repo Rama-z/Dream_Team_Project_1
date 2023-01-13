@@ -20,14 +20,18 @@ class Profiles extends Component {
       gender: "male",
       email: undefined,
       file: undefined,
-      image: undefined,
+      image: null,
+      display: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmit2 = this.handleSubmit2.bind(this);
+    this.inputImage = this.inputImage.bind(this);
   }
 
   componentDidMount() {
     console.log(this.props.auth.userInfo.token);
+    console.log("check setimage:", this.state.image);
+    console.log("check setimage:", this.state.display);
     document.title = "Profile";
     const token = this.props.auth.userInfo.token;
     console.log(token);
@@ -48,13 +52,22 @@ class Profiles extends Component {
           email: res.data.data[0].email,
           desc: res.data.data[0].store_description,
           image: res.data.data[0].image,
+          display: res.data.data[0].image
         });
       })
       .catch((err) => {
         console.log(err);
       });
-    console.log(info);
+    // console.log(info);
   }
+
+  inputImage = (event) => {
+    console.log(this.state.display);
+    if (event.target.files && event.target.files[0]) {
+      this.setState({ display: URL.createObjectURL(event.target.files[0]) });
+      this.setState({ image: event.target.files[0] });
+    }
+  };
 
   handleChange(event, field) {
     this.setState({ [field]: event.target.value });
@@ -100,9 +113,10 @@ class Profiles extends Component {
     formdata.append("username", this.state.username);
     formdata.append("gender", this.state.gender);
     formdata.append("store_description", this.state.desc);
-    if (this.state.file) {
-      formdata.append("image", this.state.file);
-    }
+    // if (this.state.file) {
+    //   formdata.append("image", this.state.file);
+    // }
+    if (this.state.image !== this.state.display) formdata.append("image", this.state.image);
     const body = formdata;
     const config = {
       headers: {
@@ -133,16 +147,16 @@ class Profiles extends Component {
       });
   }
 
-  handleFile(event) {
-    if (event.target.files && event.target.files[0]) {
-      this.setState({
-        image: URL.createObjectURL(event.target.files[0]),
-      });
-    }
-    this.setState({
-      file: event.target.files[0],
-    });
-  }
+  // handleFile(event) {
+  //   if (event.target.files && event.target.files[0]) {
+  //     this.setState({
+  //       display: URL.createObjectURL(event.target.files[0]),
+  //     });
+  //   }
+  //   this.setState({
+  //     file: event.target.files[0],
+  //   });
+  // }
 
   render() {
     return (
@@ -179,10 +193,10 @@ class Profiles extends Component {
               </div>
               <div className={styles["profile-div"]}>
                 <label for="upload" className={styles["profile-image-div"]}>
-                  {this.state.image ? (
+                  {this.state.display ? (
                     <img
                       className={styles["profile-image"]}
-                      src={this.state.image}
+                      src={this.state.display}
                       alt="img"
                     />
                   ) : (
@@ -197,10 +211,7 @@ class Profiles extends Component {
                     name="file"
                     id="upload"
                     className={styles["none"]}
-                    onChange={(event) => {
-                      this.handleFile(event);
-                      // console.log(event);
-                    }}
+                    onChange={this.inputImage}
                   />
                 </label>
                 <div>

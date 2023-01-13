@@ -29,6 +29,7 @@ export default function ProfileSellers() {
     file: profile.file,
     image: profile.image || edit,
     store_description: profile.store_description,
+    display: profile.image
   });
   console.log(body);
   useEffect(() => {
@@ -74,6 +75,25 @@ export default function ProfileSellers() {
     });
   };
 
+  const inputImage = (event) => {
+    // console.log(image);
+    if (event.target.files && event.target.files[0]) {
+      setBody({
+        ...body,
+        display: URL.createObjectURL(event.target.files[0]),
+      });
+    }
+    setBody({
+      ...body,
+      file: event.target.files[0],
+    });
+    // if (event.target.files && event.target.files[0]) {
+    //   setDisplay(URL.createObjectURL(event.target.files[0]));
+    //   setImage(event.target.files[0]);
+    //   console.log("check setimage:", image);
+    // }
+  };
+
   const handleSubmit2 = (event) => {
     event.preventDefault();
     const url = `https://dream-team-project-be.vercel.app/raz/users/profile/edit`;
@@ -117,18 +137,18 @@ export default function ProfileSellers() {
       });
   };
 
-  const handleFile = (event) => {
-    if (event.target.files && event.target.files[0]) {
-      setBody({
-        ...body,
-        image: URL.createObjectURL(event.target.files[0]),
-      });
-    }
-    setBody({
-      ...body,
-      file: event.target.files[0],
-    });
-  };
+  // const handleFile = (event) => {
+  //   if (event.target.files && event.target.files[0]) {
+  //     setBody({
+  //       ...body,
+  //       image: URL.createObjectURL(event.target.files[0]),
+  //     });
+  //   }
+  //   setBody({
+  //     ...body,
+  //     file: event.target.files[0],
+  //   });
+  // };
 
   return (
     <>
@@ -184,10 +204,10 @@ export default function ProfileSellers() {
             <section className={styles["section-2"]}>
               <div className={styles["profile-div"]}>
                 <label htmlFor="upload" className={styles["profile-image-div"]}>
-                  {body.image ? (
+                  {body.display ? (
                     <img
                       className={styles["profile-image"]}
-                      src={body.image}
+                      src={body.display}
                       alt="img"
                     />
                   ) : (
@@ -202,9 +222,7 @@ export default function ProfileSellers() {
                     name="file"
                     id="upload"
                     className={styles["none"]}
-                    onChange={(e) => {
-                      handleFile(e);
-                    }}
+                    onChange={inputImage}
                   />
                 </label>
                 <div>
