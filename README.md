@@ -263,7 +263,7 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 
 ## Documentation
 
-<img width="500" src="https://raw.githubusercontent.com/Rama-z/Dream_Team_Project_1/main/src/assets/project-documentation/grasberg-react.png" alt="Landing page">
+<img width="500" src="https://raw.githubusercontent.com/Rama-z/Dream_Team_Project_1/tree/main/src/assets/project-documentation/grasberg-react.png" alt="Landing page">
 <img width="500" src="https://raw.githubusercontent.com/Rama-z/Dream_Team_Project_1/main/src/assets/project-documentation/grasberg-react-2.png" alt="Landing page">
 <img width="500" src="https://raw.githubusercontent.com/Rama-z/Dream_Team_Project_1/main/src/assets/project-documentation/grasberg-react-3.png" alt="Landing page">
 <img width="500" src="https://raw.githubusercontent.com/Rama-z/Dream_Team_Project_1/main/src/assets/project-documentation/grasberg-react-4.png" alt="Landing page">
