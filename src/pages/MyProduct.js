@@ -113,14 +113,14 @@ const MyProducts = () => {
               >
                 Selling Product
               </p>
-              {/* <p
+              <p
                 className={styles["nav-div-2"]}
                 onClick={() => {
                   navigate("/profile/seller/order");
                 }}
               >
                 My Order
-              </p> */}
+              </p>
             </div>
             <table className={styles["table"]}>
               <tr className={styles["tr-top"]}>

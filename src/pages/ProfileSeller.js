@@ -172,14 +172,14 @@ export default function ProfileSellers() {
               >
                 Selling Product
               </p>
-              {/* <p
+              <p
                 className={styles["nav-div-2"]}
                 onClick={() => {
                   navigate("/profile/seller/order");
                 }}
               >
                 My Order
-              </p> */}
+              </p>
             </div>
             <section className={styles["section-2"]}>
               <div className={styles["profile-div"]}>

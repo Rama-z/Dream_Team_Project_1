@@ -175,14 +175,14 @@ export default function SellingProducts() {
                 </p>
                 <div className={styles["nav-line"]}></div>
               </div>
-              {/* <p
+              <p
                 className={styles["nav-div-2"]}
                 onClick={() => {
                   navigate("/profile/seller/order");
                 }}
               >
                 My Order
-              </p> */}
+              </p>
             </div>
             <section className={styles["product-section"]}>
               <h1 className={styles["sell-header-1"]}>Inventory</h1>
