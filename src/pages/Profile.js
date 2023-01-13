@@ -132,7 +132,7 @@ class Profiles extends Component {
           showConfirmButton: false,
         }).then((result) => {
           if (result.dismiss === Swal.DismissReason.timer) {
-            window.location.reload();
+            // window.location.reload();
           }
         });
         console.log(res);
