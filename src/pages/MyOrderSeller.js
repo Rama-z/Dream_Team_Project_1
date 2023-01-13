@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import styles from "../styles/MyOrderSeller.module.css";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Loading from "../components/Loading";
 // import { useState } from "react";
 // import Axios from "axios";
 import orderAction from "../redux/action/order";
@@ -15,7 +16,10 @@ export default function MyOrderSellers() {
   const navigate = useNavigate();
   const auth = useSelector((state) => state.auth);
   const data = useSelector((state) => state.order.orders);
-  // const [data, setData] = useState();
+  // let isLoading = useSelector((state) => state.products.isLoading);
+  let [isLoading, setIsLoading] = useState(true)
+
+  // const [data, setData] = useState();  
   console.log(data);
   const dispatch = useDispatch();
 
@@ -30,7 +34,7 @@ export default function MyOrderSellers() {
     } else {
       dispatch(orderAction.getOrderSellerThunk(config));
     }
-
+    setIsLoading(true)
     // console.log(auth);
     // let url;
     // if (auth.userInfo.roles === "seller") {
@@ -47,7 +51,7 @@ export default function MyOrderSellers() {
     //     console.log(err);
     //   });
   }, [dispatch, auth.userInfo.roles, auth.userInfo.token]);
-
+  console.log(data);
   return (
     <>
       <main className={styles["main-2"]}>
@@ -109,14 +113,17 @@ export default function MyOrderSellers() {
                 <div className={styles["nav-line"]}></div>
               </div>
             </div>
-            <table className={styles["table"]}>
-              <tr>
-                <th className={styles["th-top-text-1"]}>PRODUCTS</th>
-                <th></th>
-                <th className={styles["th-top-text-1"]}>PRICE</th>
-                <th className={styles["th-top-text-1"]}>QUANTITY</th>
-                <th className={styles["th-top-text-1"]}>STATUS ORDER</th>
-                <th className={styles["th-top-text-1"]}>TOTAL</th>
+            {isLoading && setTimeout(() => {
+              setIsLoading(false)
+            }, 1500) ? <tr className={styles["loading"]}>
+              <Loading />
+            </tr> : <table className={styles["table"]}>
+              <tr className={styles["content-top"]}>
+                <td className={styles["th-top-text-1"]}>PRODUCTS</td>
+                <td className={styles["th-top-text-1"]}>PRICE</td>
+                <td className={styles["th-top-text-1"]}>QUANTITY</td>
+                <td className={styles["th-top-text-1"]}>STATUS ORDER</td>
+                <td className={styles["th-top-text-1"]}>TOTAL</td>
               </tr>
               {data.length === 0 ? (
                 <tr>
@@ -124,33 +131,33 @@ export default function MyOrderSellers() {
                 </tr>
               ) : (
                 data.map((item) => {
-                  return (
-                    <tr>
-                      <th>
-                        <img
-                          className={styles["table-img"]}
-                          src={item.image}
-                          alt="img"
-                        />
-                      </th>
-                      <th className={styles["th-text-1"]}>
-                        {item.product_name}
-                      </th>
-                      <th className={styles["th-text-2"]}>Rp.{item.price}</th>
-                      <th className={styles["th-text-3"]}>{item.quantity}</th>
-                      <th>
-                        <div className={styles["th-text-4"]}>
-                          {item.status_order}
-                        </div>
-                      </th>
-                      <th className={styles["th-text-5"]}>
-                        Rp.{item.price * item.quantity}
-                      </th>
-                    </tr>
-                  );
+                  {
+                    if (item.image) {
+                      return (
+                        <tr className={styles["content-order"]}>
+                          <td className={styles["th-text-1"]}>
+                            <img
+                              className={styles["table-img"]}
+                              src={item.image}
+                              alt="img"
+                            />
+                            {item.product_name}
+                          </td>
+                          <td className={styles["th-text-2"]}>Rp.{item.price}</td>
+                          <td className={styles["th-text-3"]}>{item.quantity}</td>
+                          <td className={styles["th-text-4"]}>
+                            {item.status_order}
+                          </td>
+                          <td className={styles["th-text-5"]}>
+                            Rp.{item.price * item.quantity}
+                          </td>
+                        </tr>
+                      );
+                    }
+                  }
                 })
               )}
-            </table>
+            </table>}
             <div className={styles["line"]}></div>
           </section>
           <Footer />

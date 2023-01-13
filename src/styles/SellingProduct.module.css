@@ -359,5 +359,8 @@ button:focus:not(:focus-visible) {
       display: flex;
       justify-content: center;
     }
+    .profile-nav {
+      column-gap: 3px;
+    }
   }
 }

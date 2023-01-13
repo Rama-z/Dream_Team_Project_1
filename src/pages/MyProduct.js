@@ -122,59 +122,55 @@ const MyProducts = () => {
                 My Order
               </p>
             </div>
-            <table className={styles["table"]}>
+            {isLoading ? <tr className={styles["loading"]}>
+              <Loading />
+            </tr> : <table className={styles["table"]}>
               <tr className={styles["tr-top"]}>
                 <th className={styles["table-text-1"]}>Product</th>
                 <th></th>
                 <th className={styles["table-text-1"]}>Stock Status</th>
                 <th className={styles["table-text-1"]}>Price</th>
               </tr>
-              {isLoading ? (
-                <div className={styles["loading"]}>
-                  <Loading />
-                </div>
-              ) : (
-                sellerProducts?.map((item, index) => (
-                  <tbody>
-                    <th className={styles["product-th"]}>
-                      <p className={styles["table-img"]}>
-                        <img
-                          className={styles["product-img"]}
-                          src={item.image}
-                          key={index}
-                          alt="img"
-                        />
-                      </p>
-                    </th>
-                    <th className={styles["table-text-2"]}>
-                      {item.product_name}
-                    </th>
-                    <th>
-                      <p className={styles["table-text-3"]}>
-                        <img
-                          className={styles["check"]}
-                          src={check}
-                          alt="img"
-                          key={index}
-                        />
-                        {item.stock} Stock
-                      </p>
-                    </th>
-                    <th className={styles["table-text-4"]}>Rp {item.price}</th>
-                    <th>
-                      <p className={styles["delete-div"]}>
-                        <button
-                          className={styles["delete-btn"]}
-                          onClick={() => handleDelete(item.id)}
-                        >
-                          Delete
-                        </button>
-                      </p>
-                    </th>
-                  </tbody>
-                ))
-              )}
-            </table>
+              {sellerProducts?.map((item, index) => (
+                <tbody>
+                  <th className={styles["product-th"]}>
+                    <div className={styles["table-img"]}>
+                      <img
+                        className={styles["product-img"]}
+                        src={item.image}
+                        key={index}
+                        alt="img"
+                      />
+                    </div>
+                  </th>
+                  <th className={styles["table-text-2"]}>
+                    {item.product_name}
+                  </th>
+                  <th>
+                    <p className={styles["table-text-3"]}>
+                      <img
+                        className={styles["check"]}
+                        src={check}
+                        alt="img"
+                        key={index}
+                      />
+                      {item.stock} Stock
+                    </p>
+                  </th>
+                  <th className={styles["table-text-4"]}>Rp {item.price}</th>
+                  <th>
+                    <p className={styles["delete-div"]}>
+                      <button
+                        className={styles["delete-btn"]}
+                        onClick={() => handleDelete(item.id)}
+                      >
+                        Delete
+                      </button>
+                    </p>
+                  </th>
+                </tbody>
+              ))}
+            </table>}
           </section>
           <Footer />
         </main>

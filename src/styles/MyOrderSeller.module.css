@@ -17,11 +17,11 @@
 }
 
 .section-1::after {
-  background-image: url("../assets/login-background.png");
-  background-image: url("../assets/login-background.png");
+  background-image: url('../assets/login-background.png');
+  background-image: url('../assets/login-background.png');
   background-repeat: no-repeat;
   background-size: cover;
-  content: "";
+  content: '';
   opacity: 0.2;
   top: 0;
   left: 0;
@@ -103,60 +103,62 @@
 
 .th-top-text-1 {
   font-weight: 400;
-  font-size: 11px;
-  line-height: 13px;
+  font-size: 18px;
+  /* line-height: 13px; */
   letter-spacing: 0.916667px;
   color: #8d8d8d;
-  padding-bottom: 60px;
+  padding-bottom: 30px;
 }
 
 .th-text-1 {
   font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 18px;
+  /* line-height: 16px; */
   text-align: left;
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 }
 
 .th-text-2 {
   font-weight: 700;
   font-size: 18px;
-  line-height: 21px;
+  /* line-height: 21px; */
   color: #1a1a1a;
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 }
 
 .th-text-3 {
-  display: flex;
+  /* display: flex; */
   font-weight: 400;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 18px;
+  /* line-height: 16px; */
   color: #4a4141;
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 }
 
 .th-text-4 {
-  display: flex;
-  align-items: center;
-  column-gap: 6.5px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+  /* column-gap: 6.5px; */
   font-weight: 400;
-  font-size: 12px;
-  line-height: 14px;
+  font-size: 18px;
+  /* line-height: 14px; */
   color: #262626;
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 }
 
 .th-text-5 {
   font-weight: 700;
-  font-size: 14px;
-  line-height: 16px;
+  font-size: 18px;
+  /* line-height: 16px; */
   color: #262626;
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 }
 
 .table-img {
-  width: 69px;
-  padding-bottom: 50px;
+  width: 100px;
+  height: 100px;
+  padding-bottom: 20px;
 }
 
 .line {
@@ -164,7 +166,27 @@
   border: 1px solid #dbdbdb;
   margin-top: 9px;
 }
-
+.content-order {
+  /* width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* gap: 1rem; */
+  /* justify-content: space-around;
+  align-items: center; */
+}
+.content-top {
+  /* width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; */
+  /* align-items: center; */
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
 @media (max-width: 768px) {
   .section-2 {
     padding-left: 1.5rem;

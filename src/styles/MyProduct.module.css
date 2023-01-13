@@ -265,6 +265,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 @media (max-width: 768px) {
@@ -348,5 +349,11 @@
     font-size: 16px;
     line-height: 18px;
     color: #ffffff;
+  }
+}
+
+@media (max-width: 428px) {
+  .profile-nav {
+    column-gap: 3px;
   }
 }

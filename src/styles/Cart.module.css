@@ -64,10 +64,10 @@
 }
 
 .section-1::after {
-  background-image: url("../assets/login-background.png");
+  background-image: url('../assets/login-background.png');
   background-repeat: no-repeat;
   background-size: cover;
-  content: "";
+  content: '';
   opacity: 0.2;
   top: 0;
   left: 0;
@@ -175,8 +175,9 @@
 
 .count-th {
   display: flex;
-  column-gap: 30px;
-  padding-bottom: 50px;
+  justify-content: flex-start;
+  column-gap: 16px;
+  padding-top: 40px;
 }
 
 .counter-p {
