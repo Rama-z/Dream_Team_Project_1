@@ -178,7 +178,7 @@ $ npm install
 Configure .env file by create file named .env inside project folder and add this line to the file:
 
 ```
-NEXT_PUBLIC_BACKEND_URL = "https://dian-coffeshop.vercel.app/"
+NEXT_PUBLIC_BACKEND_URL = "https://dream-team-project-be.vercel.app/"
 ```
 
 ### 4. Run projects
@@ -260,6 +260,13 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 [dream furniture backend](https://dream-team-project-be.vercel.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Documentation
+
+<img width="500" src="https://raw.githubusercontent.com/Rama-z/Dream_Team_Project_1/main/src/assets/project-documentation/raz1.png" alt="Landing page">
+<img width="500" src="https://raw.githubusercontent.com/Rama-z/Dream_Team_Project_1/main/src/assets/project-documentation/raz-2.png" alt="Landing page">
+<img width="500" src="https://raw.githubusercontent.com/Rama-z/Dream_Team_Project_1/main/src/assets/project-documentation/raz-3.png" alt="Landing page">
+<img width="500" src="https://raw.githubusercontent.com/Rama-z/Dream_Team_Project_1/main/src/assets/project-documentation/raz-4.png" alt="Landing page">
 
 ## Contributors
 
